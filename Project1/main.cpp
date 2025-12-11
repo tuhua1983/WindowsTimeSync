@@ -3,14 +3,14 @@
 #include <fstream>
 #include <ctime>
 using namespace std;
-int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int) {
-	system("sc start w32time >nul 2>&1");
-	system("w32tm /resync");
+int main() {
+	int ret1 = system("sc start w32time >nul 2>&1");
+	int ret2 = system("w32tm /resync >nul 2>&1");
 	ofstream log(L"time_sync_log.txt", ios::app);
 	char dt[32];
 	time_t now = time(nullptr);
 	ctime_s(dt, sizeof(dt), &now);
-	log << dt << "\tOK\n";
+	log << ret1 << "\t" << ret2 << "\t" << dt;
 	log.close();
 	return 0;
 }
