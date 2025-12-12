@@ -1,0 +1,9 @@
+diff a/Project1/main.cpp b/Project1/main.cpp	(rejected hunks)
+@@ -3,7 +3,6 @@
+ #include <fstream>
+ #include <ctime>
+ using namespace std;
+-int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int) {
+ int main() {
+ 	int ret1 = system("sc start w32time >nul 2>&1");
+ 	int ret2 = system("w32tm /resync >nul 2>&1");

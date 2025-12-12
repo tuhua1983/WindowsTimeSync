@@ -3,10 +3,10 @@
 #include <fstream>
 #include <ctime>
 using namespace std;
-int main() {
-	int ret1 = system("sc start w32time >nul 2>&1");
+int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int) {
+	int ret1 = system("net start w32time >nul 2>&1");
 	int ret2 = system("w32tm /resync >nul 2>&1");
-	ofstream log(L"time_sync_log.txt", ios::app);
+	ofstream log("time_sync_log.txt", ios::app);
 	char dt[32];
 	time_t now = time(nullptr);
 	ctime_s(dt, sizeof(dt), &now);
